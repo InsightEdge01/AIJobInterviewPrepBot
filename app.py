@@ -9,7 +9,6 @@ from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 
 # Function to load documents 
-@st.cache_data
 def load_documents():
     loader = DirectoryLoader('data/', glob="*.pdf", loader_cls=PyPDFLoader)
     documents = loader.load()
@@ -43,7 +42,7 @@ st.markdown('<style>h1{color: orange; text-align: center;}</style>', unsafe_allo
 st.subheader('Get Your Desired Job 💪')
 st.markdown('<style>h3{color: pink; text-align: center;}</style>', unsafe_allow_html=True)
 
-# Lazy loading of documents
+# loading of documents
 documents = load_documents()
 
 # Split text into chunks
